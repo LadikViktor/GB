@@ -15,3 +15,13 @@ function smile($emodzi)
         $emodzi
     );
 }
+
+function cens($f)
+{
+    // if (preg_match("/(дурак|редиска)/i", $f)) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+    return preg_match("/(дурак|редиска)/iu", $f) ? false : true;
+}

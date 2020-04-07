@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,10 +39,15 @@
     include('connect.php');
     include('fun.php');
 
+    // print_r($_SESSION);
+    if (isset($_SESSION['bantime']) && ($_SESSION['bantime'] > time())) {
+        echo "Вы забанены на: " . ($_SESSION['bantime'] - time()) . "с";
+    }
+
 
     $result_count = $mysqli->query('SELECT count(*) FROM `www`');
     $count = $result_count->fetch_array(MYSQLI_NUM)[0];
-    // echo "количество записей: " . $count;
+    echo "количество записей: " . $count;
     $result_count->free();
     // echo $pagesize;
 
