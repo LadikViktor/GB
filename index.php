@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .pageination {
+            color: red;
+        }
+
+        .selectedpage {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,9 +47,16 @@
 
     $startrow = ($curientpage - 1) * $pagesize;
 
-    $pageination = "<div class='pageination'>";
+    $pageination = "<div class='pageination'>\n";
+
     for ($i = 1; $i <= $pagecount; $i++) {
-        $pageination .= "<a href = '?page=$i'>$i</a>";
+        // if ($curientpage == $i) {
+        //     $str = " class='selectedpage'";
+        // } else {
+        //     $str = "";
+        // }
+        $str = ($curientpage == $i) ? " class='selectedpage'" : "";
+        $pageination .= "<a  href = '?page=$i' $str>$i</a>\n";
     }
     $pageination .= "</div>";
 
