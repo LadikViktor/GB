@@ -21,9 +21,10 @@
     // Port: 3306
     //SELECT COUNT(*) as count FROM www
 
+    include('config.php');
     include('connect.php');
     include('fun.php');
-    include('config.php');
+
 
     $result_count = $mysqli->query('SELECT count(*) FROM `www`');
     $count = $result_count->fetch_array(MYSQLI_NUM)[0];
