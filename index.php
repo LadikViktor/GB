@@ -23,14 +23,28 @@
 
     include('connect.php');
     include('fun.php');
+    include('config.php');
 
     $result_count = $mysqli->query('SELECT count(*) FROM `www`');
     $count = $result_count->fetch_array(MYSQLI_NUM)[0];
-    echo "количество записей: " . $count;
+    // echo "количество записей: " . $count;
     $result_count->free();
+    // echo $pagesize;
 
+    $pagecount = ceil($count / $pagesize);
+    $curientpage = $_GET['page'] ?? 1;
 
-    $result = $mysqli->query('SELECT * FROM `www`');
+    $startrow = ($curientpage - 1) * $pagesize;
+
+    $pageination = "<div class='pageination'>";
+    for ($i = 1; $i <= $pagecount; $i++) {
+        $pageination .= "<a href = '?page=$i'>$i</a>";
+    }
+    $pageination .= "</div>";
+
+    $result = $mysqli->query("SELECT * FROM `www` LIMIT $startrow, $pagesize");
+
+    echo $pageination;
 
     echo "<table border='1'>\n";
     while ($row = $result->fetch_object()) {
@@ -40,6 +54,9 @@
         echo "</tr>";
     }
     echo "</table>\n";
+
+    echo $pageination;
+
     $result->free();
 
     $mysqli->close();

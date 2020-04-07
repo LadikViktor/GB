@@ -1,4 +1,5 @@
 <?php
+include('config.php');
 include('connect.php');
 
 if (!empty($_POST['text']) && !empty($_POST['name'])) {
