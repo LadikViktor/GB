@@ -24,12 +24,24 @@
     include('connect.php');
     include('fun.php');
 
-    $result = $mysqli->query('SELECT * FROM `www`');
-    while ($row = $result->fetch_object()) {
-        echo "<b>" . smile($row->text) . "</b> <i>$row->name</i><br>\n";
-    }
+    $result_count = $mysqli->query('SELECT count(*) FROM `www`');
+    $count = $result_count->fetch_array(MYSQLI_NUM)[0];
+    echo "количество записей: " . $count;
+    $result_count->free();
 
+
+    $result = $mysqli->query('SELECT * FROM `www`');
+
+    echo "<table border='1'>\n";
+    while ($row = $result->fetch_object()) {
+        echo "<tr>";
+        echo "<td>" . smile($row->text) . "</td>";
+        echo "<td>" . $row->name . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>\n";
     $result->free();
+
     $mysqli->close();
     ?>
 
