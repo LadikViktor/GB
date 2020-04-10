@@ -93,7 +93,7 @@ session_start();
 
     //Бан
     if (isset($_SESSION['bantime']) && ($_SESSION['bantime'] > time())) {
-        echo "<div class='ban'>" . "Вы забанены на: " . ($_SESSION['bantime'] - time()) . " с" . "<br>" . "</div>";
+        echo "<div class='ban'>" . "Вы забанены на: " . ($_SESSION['bantime'] - time()) . " с" . "<br>" .  "<br>" . "</div>";
     }
 
 
