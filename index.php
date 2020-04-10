@@ -19,6 +19,7 @@ session_start();
             color: green;
         }
 
+
         .selectedpage {
             color: blue !important;
             font-weight: bold;
