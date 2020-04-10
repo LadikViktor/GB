@@ -53,7 +53,7 @@ session_start();
         }
 
         .time {
-            color: darkred;
+            color: red;
             font-size: 20px;
             font-family: cursive;
         }
