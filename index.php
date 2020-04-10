@@ -100,7 +100,7 @@ session_start();
     // Счетчик посещений
     if (isset($_SESSION['pagevisits'])) {
         echo "<div class='number_records'>" . "Колличество посещений страницы = " . "<b>" .
-            $_SESSION['pagevisits'] = $_SESSION['pagevisits'] + 1 . "</b>" . "<br>" . "</div>" . "<br>";
+            $_SESSION['pagevisits'] = $_SESSION['pagevisits'] + 1 . "</b>" . "<br>" . "</div>" . "<br>" . "<br>";
     }
 
 
