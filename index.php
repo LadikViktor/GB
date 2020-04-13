@@ -97,18 +97,11 @@ session_start();
     }
 
 
+
     // Счетчик посещений
-    // if (isset($_SESSION['pagevisits'])) {
-    //     echo "<div class='number_records'>" . "Колличество посещений страницы = " . "<b>" .
-    //         $_SESSION['pagevisits'] = $_SESSION['pagevisits'] + 1 . "</b>" . "<br>" . "</div>" . "<br>" . "<br>";
-    // }
-
     if (isset($_SESSION['pagevisits'])) {
-
-        echo "<div class='number_records'>" . "Колличество посещений страницы = " . $_SESSION['pagevisits'] = $_SESSION['pagevisits'] + 1 . "<br>" . "</div>" . "<br>";
-    } else {
-        $_SESSION['pagevisits'] = 1;
-        echo "Колличество посещений страницы = " . $_SESSION['pagevisits'];
+        echo "<div class='number_records'>" . "Колличество посещений страницы = " . "<b>" .
+            $_SESSION['pagevisits'] = $_SESSION['pagevisits'] + 1 . "</b>" . "<br>" . "</div>" . "<br>";
     }
 
 
